@@ -11,6 +11,6 @@ context('As an unregistered user I would like to buy products without logging in
         cy.get('[data-test=addProductToCartButton]').click()
         cy.get('[data-test=gotoCheckoutButton]').click()
         cy.get('[data-test=continueAsGuestButton]').click()
-        cy.get('[data-test=sku]').contains(55101176) //T-shirt's SKUgit
+        cy.get('[data-test=sku]').contains(55101176) //T-shirt's SKU
     })
 })
