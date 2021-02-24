@@ -45,6 +45,7 @@ context('As an admin user I would d like to log in to my dashboard account', () 
         cy.get('[data-test="password"]')
         cy.get('[data-test=submit]')
             .click()
+        cy.get('[data-test=welcomeHeader]').should('be.visible')
     })
 
 })
