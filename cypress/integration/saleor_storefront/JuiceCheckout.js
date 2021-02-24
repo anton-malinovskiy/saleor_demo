@@ -14,24 +14,35 @@ context('As an unregistered user I would like to add any juice to cart and go to
         cy.get('[data-test=gotoCheckoutButton] > span').click()
         cy.get('[data-test=continueAsGuestButton] > span').click()
         cy.get('.sc-ckVGcZ > div > span').click()
-        cy.get(':nth-child(1) > :nth-child(1) > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').click()
-        cy.get('input[type=text]').type('JOHN');
+        cy.get(':nth-child(1) > :nth-child(1) > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('Adam')
+        cy.get(':nth-child(1) > :nth-child(2) > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('Kowalski')
+        cy.get(':nth-child(2) > :nth-child(2) > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('755222111')
+        cy.get(':nth-child(3) > .sc-lhVmIH > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('Jagodowa')
+        cy.get(':nth-child(4) > .sc-lhVmIH > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('10/15')
+        cy.get(':nth-child(5) > :nth-child(1) > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('Wrocław')
+        cy.get(':nth-child(5) > :nth-child(2) > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('53-103')
+        cy.get(':nth-child(6) > .sc-lhVmIH > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('Dolnośląskie')
+        cy.get(':nth-child(7) > .sc-lhVmIH > .sc-fAjcbJ > .sc-gisBJw > .sc-kjoXOD').type('akowal@wp.pl')
+
+        cy.get(".select-country__input")
+            .click({ multiple: true })
+            .get(".css-1pcexqc-container")
+            .first()
+            .click()
+            .type(`Poland{enter}`)
+
+        cy.get("[data-test=checkoutPageNextStepButton]").click()
+        cy.get("[data-test-id=\"U2hpcHBpbmdNZXRob2Q6MjM=\"] > .sc-jbKcbu > div").click()
+        cy.get("[data-test=checkoutPageNextStepButton]").click()
+        cy.get("[data-test=checkoutPaymentGatewayDummyName]").click()
+        cy.get(".sc-iwsKbI").click()
+        cy.get("[data-test=checkoutPageNextStepButton]")
+            .wait(5000)
+            .click()
+
+        cy.get("[data-test=gotoOrderDetailsButton]").should("exist")
 
 
 
-
-
-
-
-
-
-
-        // cy.get('.slider-list li a[href*="/112/"]').click()
-        // cy.get('[data-test=variantPicker]').click()
-        // cy.get('div[data-test=attributeOption][data-test-id="M"]').click() //Specific T-shirt, size M
-        // cy.get('[data-test=addProductToCartButton]').click()
-        // cy.get('[data-test=gotoCheckoutButton]').click()
-        // cy.get('[data-test=continueAsGuestButton]').click()
-        // cy.get('[data-test=sku]').contains(55101176) //T-shirt's SKU
     })
 })
